@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: "Segoe UI", sans-serif;
+  text-align: center;
+  background: #fff0f5;
+  overflow: hidden;
+}
+
+h2 {
+  color: #c2185b;
+}
+
+#canvas {
+  margin-top: 15px;
+  border: 2px solid #f48fb1;
+  background: white;
+}
+
+/* Dots */
+.dot {
+  fill: #c2185b;
+  cursor: pointer;
+  transition: fill 0.2s;
+}
+
+/* Start dot pulse */
+.start-dot {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { r: 6; opacity: 1; }
+  50% { r: 9; opacity: 0.6; }
+  100% { r: 6; opacity: 1; }
+}
+
+/* Wrong dot feedback */
+.wrong {
+  animation: shake 0.35s;
+  fill: #e53935 !important;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
+
+/* Lines */
+.line {
+  stroke: #c2185b;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+/* Glow effect */
+.glow {
+  filter: drop-shadow(0 0 6px #ff4f8b)
+          drop-shadow(0 0 12px #ff80ab)
+          drop-shadow(0 0 20px #ffb3c7);
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0% {
+    filter: drop-shadow(0 0 6px #ff4f8b);
+  }
+  50% {
+    filter: drop-shadow(0 0 18px #ff80ab);
+  }
+  100% {
+    filter: drop-shadow(0 0 6px #ff4f8b);
+  }
+}
+
+/* Messages */
+#message {
+  font-size: 18px;
+  color: #880e4f;
+}
+
+#final-love {
+  display: none;
+  font-size: 26px;
+  margin-top: 20px;
+  color: #b0003a;
+  font-weight: bold;
+}
+
+/* Floating hearts */
+.heart {
+  position: absolute;
+  bottom: -20px;
+  font-size: 18px;
+  color: rgba(194, 24, 91, 0.6);
+  animation: floatUp 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(0.8); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(-110vh) scale(1.3); opacity: 0; }
+}
